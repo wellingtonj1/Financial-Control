@@ -1,0 +1,22 @@
+// Variables
+@import     'utils/_variables';
+
+// Utils
+@import     'utils/_paddings';
+@import     'utils/_margins';
+
+// PAGES
+// @import     'pages/namePage';
+
+// Common
+@import     'common/_form';
+@import     'common/_card';
+@import     'common/_bootbox';
+@import     'common/_select2';
+@import     'common/_buttons';
+@import     'common/_nav';
+@import     'common/_table';
+@import     'common/_pagination';
+
+// Custom
+@import     'all';

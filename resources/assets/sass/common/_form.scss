@@ -1,0 +1,72 @@
+form {
+
+    .heading-controls {
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        button {
+            margin-left: 10px;
+        }
+
+        a {
+            margin-left: 10px;
+
+            &:disabled {
+                font-size: 16px; 
+            }	
+        }
+    }
+
+    .center-submit {
+            
+        display: flex;
+        justify-content: center;
+
+        .submit {
+            margin-top: 40px;
+            min-width: 300px;
+        }
+
+    }
+
+    .select2-container  {
+
+        min-height: 38px;
+        display: block;
+        position: relative;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+        width: 100% !important;
+        
+        .selection {
+
+            .select2-selection {
+                
+                min-height: 38px;
+                vertical-align: middle;
+                
+                .select2-selection__rendered {
+                    
+                    min-height: 38px;
+                    margin-top: 3px;
+                    
+                    span {
+                        min-height: 38px;
+                        vertical-align: middle;
+                    }
+                }
+
+                .select2-selection__arrow {
+                    min-height: 38px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+    }
+
+}

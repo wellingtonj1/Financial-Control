@@ -1,0 +1,47 @@
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$primary: #41AED9;
+$secondary: #4d5fc4;
+$tertiary: #990FBF;
+$quaternary: #13F2DC;
+$quintenary: #303030;
+
+// primary secondary tertiary quaternary
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$white: #fff;
+
+
+// Background colors
+$appBgColor: $secondary;
+$navBgColor: $quintenary;
+$cardBgColor: $quintenary;
+$sidenavBgColor: $quintenary;
+
+// Text colors
+$cardTxtColor: $white;
+$navTxtColor: $white;
+$sidenavTxtColor: #ccc;
+$sidenavTxtHver: #aaa;
+
+// Border colors
+$cardBorderColor: $tertiary;
+
+// Button colors
+$btnColorPrimary: #4d5fc4;
+$hoverBtnColor: #1d36c4;
+
+$btnColorSecondary: #acacac;
+$hoverSecondaryBtnColor: #8b8b8b;
