@@ -69,4 +69,15 @@ form {
 
     }
 
+    .btn-primary {
+        background-color: $btnColorPrimary;
+        border-color: $btnColorPrimary;
+        color: $white;
+    }
+
+    .btn-primary:hover {
+        background-color: $hoverBtnColor;
+        border-color: $hoverBtnColor;
+    }
+
 }

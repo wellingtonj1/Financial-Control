@@ -1,0 +1,53 @@
+html{
+    
+    body {
+        
+        min-height: 100vh;
+        background-color: #fff;
+        color: #111;
+        margin: 0;   
+
+        .wrapper {
+
+            min-height: 100vh;
+            button.close {
+                border: none;
+                background: none;
+
+                span {
+                    color: #000;
+                    font-size: 20px;
+                }
+            }
+        }
+        
+        footer {
+            .disclaimer {
+                bottom: 0;
+                border-top: 1px solid #aaa;
+                position: fixed;
+                text-align: center;
+                background-color: #fff;
+                color: #000;
+                font-size: 12px;
+                width: 100%;
+                z-index: 2;
+            }
+        }
+
+    }
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #c7c7c7;
+}
+*::-webkit-scrollbar {
+    background: #c7c7c7;
+    border-radius: 10px;
+    width: 8px;
+    height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+    background: #8b8b8b;
+    border-radius: 10px;
+}

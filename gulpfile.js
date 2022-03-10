@@ -30,7 +30,7 @@ var vendorJsFiles = [
 	'node_modules/jquery/dist/jquery.js',
 	'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
 	'node_modules/@popperjs/core/dist/umd/popper.min.js',
-	'node_modules/bootstrap/dist/js/bootstrap.min.js',
+	// 'node_modules/bootstrap/dist/js/bootstrap.min.js',
 	'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',
 	'node_modules/bootstrap-select/js/i18n/defaults-pt_BR.js',
 	'node_modules/select2/dist/js/select2.min.js',

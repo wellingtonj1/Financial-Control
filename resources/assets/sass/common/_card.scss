@@ -1,84 +1,88 @@
-// .card.custom {
+.card.custom {
     
-//     background-color: $cardBgColor;
-//     color: $cardTxtColor;
-//     border-width: 4px;
-//     border-style: solid;
-//     border-color: $cardBorderColor;
-//     border-radius: 25px;
+    background-color: $cardBgColor;
+    color: $cardTxtColor;
+    border-width: 4px;
+    border-style: solid;
+    border-color: $cardBorderColor;
+    border-radius: 25px;
 
-//     .card-title {
-//         margin: 0;
-//         font-size: 1.25rem;
-//     }
+    .card-title {
+        margin: 0;
+        font-size: 1.25rem;
+    }
 
-//     .card-header {
-//         border-bottom: 2px solid $cardBorderColor;
+    .card-header {
+        border-bottom: 2px solid $cardBorderColor;
 
-//         &.between {
-//             display: flex;
-//             justify-content: space-between;
-//             flex-direction: row;
-//             align-items: center;
-//         }
-//     }
+        &.between {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
 
-//     .heading-controls {
-//         a {
-//             &.btn {
-//                 font-size: 16px; 
-//             }  
-//         }
-//         button {
-//             font-size: 16px;
-//         }
-//     }
+    .heading-controls {
+        a {
+            &.btn {
+                font-size: 16px; 
+            }  
+        }
+        button {
+            font-size: 16px;
+        }
+    }
 
-//     .card-body {
-//         color: $cardTxtColor;
+    .card-body {
+        color: $cardTxtColor;
 
-//         table {
-//             color: $cardTxtColor;
-//             background-color: $cardBgColor;
-//         }
-//     }
+        table {
+            color: $cardTxtColor;
+            background-color: $cardBgColor;
+        }
+    }
 
-//     .alert-container {
+    .alert-container {
         
-//         .alert {
-//             margin-bottom: 0px;
-//         }
+        .alert {
+            margin-bottom: 0px;
+        }
 
-//     }
+    }
 
-//     .invalid-feedback {
-//         display: block !important;
-//         width: 100%;
-//         margin-top: 0.25rem;
-//         font-size: 80%;
-//         color: $red;
-//     }
+    .invalid-feedback {
+        display: block !important;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: $red;
+    }
 
-//     .btn-primary {
-//         background-color: $btnColorPrimary;
-//         border-color: $btnColorPrimary;
-//         color: $white;
-//     }
+    .btn-primary {
+        background-color: $btnColorPrimary;
+        border-color: $btnColorPrimary;
+        color: $white;
+    }
 
-//     .btn-primary:hover {
-//         background-color: $hoverBtnColor;
-//         border-color: $hoverBtnColor;
-//     }
+    .btn-primary:hover {
+        background-color: $hoverBtnColor;
+        border-color: $hoverBtnColor;
+    }
 
-//     .btn-secondary {
-//         background-color: $btnColorSecondary;
-//         border-color: $btnColorSecondary;
-//         color: $white;
-//     }
+    .btn-secondary {
+        background-color: $btnColorSecondary;
+        border-color: $btnColorSecondary;
+        color: $white;
+    }
 
-//     .btn-secondary:hover {
-//         background-color: $hoverSecondaryBtnColor;
-//         border-color: $hoverSecondaryBtnColor;
-//     }
+    .btn-secondary:hover {
+        background-color: $hoverSecondaryBtnColor;
+        border-color: $hoverSecondaryBtnColor;
+    }
 
-// }
+}
+
+.card.side-row {
+    min-height: 100vh;
+}

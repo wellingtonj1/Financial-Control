@@ -6,17 +6,16 @@
 @import     'utils/_margins';
 
 // PAGES
-// @import     'pages/namePage';
+@import     'pages/auth';
 
 // Common
+@import     'common/_alert';
 @import     'common/_form';
 @import     'common/_card';
 @import     'common/_bootbox';
 @import     'common/_select2';
 @import     'common/_buttons';
 @import     'common/_nav';
-@import     'common/_table';
-@import     'common/_pagination';
 
 // Custom
-@import     'all';
+@import     'layout';

@@ -1,0 +1,28 @@
+main.login, main.register {
+
+    .main-inner {
+
+        .pic {
+            height: 100%;
+            position: fixed;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .login-container, .register-container {
+
+            .card.side-row {
+                height: 100%;
+
+                .card-header {
+                    padding-top: 100px
+                }
+
+            }
+        }
+
+    }
+
+}
