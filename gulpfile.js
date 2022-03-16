@@ -35,6 +35,7 @@ var vendorJsFiles = [
 	'node_modules/bootstrap-select/js/i18n/defaults-pt_BR.js',
 	'node_modules/select2/dist/js/select2.min.js',
 	'node_modules/moment/moment.js',
+	'node_modules/bootbox/dist/bootbox.all.min.js'
 ]
 
 //Arquivos externos css

@@ -4,8 +4,8 @@
         <a href="#" class="btn-side-close">×</a>
 		<div class="content">
 			<a href="#">Dashboard</a>
-			<a href="#">Contas a Pagar</a>
-			<a href="#">Contas a Receber</a>
+			<a href="{{ route('billstopay') }}">Contas a Pagar</a>
+			<a href="{{ route('billstoreceive') }}">Contas a Receber</a>
 			<a href="#">Conta</a>
 		</div>
     </div>

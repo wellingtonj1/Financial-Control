@@ -66,7 +66,7 @@ $.fn.alert = function(type, message) {
 (function() {
 	
 	$('.alert').each(function() {
-		// closeAlert($(this));
+		closeAlert($(this));
 
 		// on click in button class close 
 		$(this).find('.close').on('click', function() {

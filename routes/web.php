@@ -24,12 +24,22 @@ Route::get          ('register',    'UserController@create'             )->name(
 Route::post         ('register',    'UserController@insert'             );
 
 Route::group(['middleware' => ['auth']], function () {
-    
 
     Route::get('/home', function () {
         return view('welcome');
     })->name('home');
 
-    Route::post     ('logout',                  'Auth\LoginController@logout')->name('logout');
+    Route::post('logout',                  'Auth\LoginController@logout')->name('logout');
+
+    Route::get('bills/payable',            'BillsPayController@index')->name('billstopay');
+    Route::post('bills/payable',           'BillsPayController@store');
+    Route::get('bills/payable/{id}/edit',  'BillsPayController@edit');
+    Route::get('bills/payable/create',     'BillsPayController@create');
+    Route::put('bills/payable',            'BillsPayController@update');
+    Route::delete('bills/payable',         'BillsPayController@delete');
+    
+    Route::get('bills/receivable',         'BillsReceiveController@index')->name('billstoreceive');
+    Route::get('bills/receivable/create',  'BillsReceiveController@create')->name('billstoreceive.create');
+
 
 });

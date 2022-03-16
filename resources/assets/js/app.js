@@ -1,10 +1,13 @@
 // Toogle side modal
 $('.open-side-nav').on('click', function () {
-    $('.side-panel').css('width', '100%');
+    $('.side-panel').css('width', '100%').css('transition', '3s');
+    $('.wrapper').css('margin-left', '250px');
+
 });
 
 $('.btn-side-close').on('click', function () {
-    $('.side-panel').css('width', '0');
+    $('.side-panel').css('width', '0').css('transition', '1s');;
+    $('.wrapper').css('margin-left', '0');
 });
 
 // Logout

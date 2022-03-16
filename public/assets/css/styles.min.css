@@ -378,22 +378,14 @@ form .btn-primary:hover {
   border-color: #1d36c4;
 }
 
-.card.custom {
-  background-color: #303030;
-  color: #fff;
-  border-width: 4px;
-  border-style: solid;
-  border-color: #990FBF;
-  border-radius: 25px;
-}
-
 .card.custom .card-title {
   margin: 0;
   font-size: 1.25rem;
 }
 
 .card.custom .card-header {
-  border-bottom: 2px solid #990FBF;
+  border-bottom: 2px solid #2F4858;
+  background-color: #ddd;
 }
 
 .card.custom .card-header.between {
@@ -409,15 +401,6 @@ form .btn-primary:hover {
 
 .card.custom .heading-controls button {
   font-size: 16px;
-}
-
-.card.custom .card-body {
-  color: #fff;
-}
-
-.card.custom .card-body table {
-  color: #fff;
-  background-color: #303030;
 }
 
 .card.custom .alert-container .alert {
@@ -458,17 +441,9 @@ form .btn-primary:hover {
   min-height: 100vh;
 }
 
-.bootbox .modal-content {
-  background-color: #303030;
-  color: #fff;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #4d5fc4;
-  border-radius: 10px;
-}
-
 .bootbox .modal-content .close {
-  color: #fff;
+  border: 0;
+  background: none;
 }
 
 .select2-container {
@@ -539,6 +514,7 @@ nav.nav-custom {
   width: 100%;
   z-index: 100;
   justify-content: space-between;
+  transition: margin-left .3s;
 }
 
 nav.nav-custom a {
@@ -587,7 +563,7 @@ nav.nav-custom .options .dropdown ul a:active {
 }
 
 .side-panel {
-  max-width: 200px;
+  max-width: 250px;
   width: 0;
   position: fixed;
   z-index: 999;
@@ -595,7 +571,6 @@ nav.nav-custom .options .dropdown ul a:active {
   left: 0;
   background-color: #111;
   overflow-x: hidden;
-  transition: 0.5s;
   padding-top: 60px;
   min-height: 100%;
   display: flex;
@@ -615,7 +590,6 @@ nav.nav-custom .options .dropdown ul a:active {
   font-size: 20px;
   color: #818181;
   display: block;
-  transition: 0.3s;
 }
 
 .side-panel a:hover {
@@ -650,6 +624,7 @@ html body {
 
 html body .wrapper {
   min-height: 100vh;
+  transition: margin-left .5s;
 }
 
 html body .wrapper button.close {
