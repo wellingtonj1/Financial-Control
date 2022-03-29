@@ -6,7 +6,7 @@ html{
         background-color: #fff;
         color: #111;
         margin: 0;   
-
+        
         .wrapper {
 
             min-height: 100vh;
@@ -52,4 +52,8 @@ html{
 *::-webkit-scrollbar-thumb {
     background: #8b8b8b;
     border-radius: 10px;
+}
+
+.hide {
+    display: none !important;
 }

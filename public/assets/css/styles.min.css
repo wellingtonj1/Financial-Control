@@ -378,6 +378,10 @@ form .btn-primary:hover {
   border-color: #1d36c4;
 }
 
+form .selects-list {
+  flex-direction: column;
+}
+
 .card.custom .card-title {
   margin: 0;
   font-size: 1.25rem;
@@ -615,6 +619,192 @@ nav.nav-custom .options .dropdown ul a:active {
   opacity: 0.8;
 }
 
+table.table-ordered th[data-column] {
+  cursor: pointer;
+}
+
+table.table-ordered th[data-column] i {
+  margin-left: 5px;
+}
+
+table.table-ordered th[data-ordered]::after, table.table-ordered th[data-ordered]::after {
+  font-family: 'FontAwesome';
+  display: inline-block;
+  content: '\f106';
+  margin-left: 5px;
+}
+
+table.table-ordered th[data-ordered="desc"]::after, table.table-ordered th[data-ordered="desc"]::after {
+  content: '\f107';
+}
+
+.nested-select {
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.nested-select select {
+  display: none;
+}
+
+.nested-select .selector-block {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.nested-select .selector-block .label {
+  flex-grow: 1;
+  user-select: none;
+  padding: 0 12px;
+}
+
+.nested-select .selector-block .label .responseText {
+  color: #f00;
+}
+
+.nested-select .selector-block .icon {
+  color: grey;
+  font-size: 16px;
+  text-align: center;
+  width: 50px;
+}
+
+.nested-select .selector-block .icon .opened {
+  display: none;
+}
+
+.nested-select .drop-down-options {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top: none;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.nested-select .drop-down-options .search-area {
+  padding: 5px;
+}
+
+.nested-select .drop-down-options .options-area {
+  font-weight: 450;
+}
+
+.nested-select .drop-down-options .options-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nested-select .drop-down-options .options-area ul li {
+  cursor: pointer;
+  display: flex;
+  font-size: 13px;
+  height: 36px;
+  user-select: none;
+  padding: 0 10px;
+  border-top: 1px solid #ddd;
+}
+
+.nested-select .drop-down-options .options-area ul li .label, .nested-select .drop-down-options .options-area ul li .edit {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-weight: 400;
+}
+
+.nested-select .drop-down-options .options-area ul li .actions {
+  display: flex;
+  align-items: center;
+}
+
+.nested-select .drop-down-options .options-area ul li .actions i {
+  font-size: 14px;
+  margin-left: 6px;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: #ff0;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 5px;
+  color: #fff !important;
+}
+
+.nested-select .drop-down-options .options-area ul li .actions i.update {
+  color: #000;
+}
+
+.nested-select .drop-down-options .options-area ul li .actions i.remove {
+  color: #f00;
+}
+
+.nested-select .drop-down-options .options-area ul li:hover {
+  background-color: #ff0;
+}
+
+.nested-select .drop-down-options .options-area ul li:hover .label {
+  color: #fff;
+}
+
+.nested-select .drop-down-options .options-area ul li:hover .actions i {
+  background-color: #fff;
+  color: #ff0 !important;
+}
+
+.nested-select .drop-down-options .options-area ul li:hover .actions i:hover {
+  opacity: 0.8;
+}
+
+.nested-select .drop-down-options .add-item {
+  align-items: center;
+  border-top: 1px solid #ddd;
+  display: flex;
+  height: 36px;
+  padding: 0 10px;
+  color: #ff0;
+}
+
+.nested-select .drop-down-options .add-item:hover {
+  background-color: #ff0;
+  color: #fff;
+}
+
+.nested-select .drop-down-options .add-item .label {
+  font-weight: 700;
+}
+
+.nested-select .drop-down-options .add-item i {
+  padding-right: 5px;
+}
+
+.nested-select.opened .selector-block {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.nested-select.opened .selector-block .icon .opened {
+  display: inline;
+}
+
+.nested-select.opened .selector-block .icon .closed {
+  display: none;
+}
+
+.nested-select.opened .drop-down-options {
+  display: block;
+}
+
 html body {
   min-height: 100vh;
   background-color: #fff;
@@ -663,4 +853,8 @@ html body footer .disclaimer {
 *::-webkit-scrollbar-thumb {
   background: #8b8b8b;
   border-radius: 10px;
+}
+
+.hide {
+  display: none !important;
 }

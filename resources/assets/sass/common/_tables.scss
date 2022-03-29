@@ -1,0 +1,26 @@
+table {
+    
+    &.table-ordered {
+
+        th[data-column] {
+            cursor: pointer;
+            
+            i {
+                margin-left: 5px;
+            }
+        }
+
+        th[data-ordered]::after, th[data-ordered]::after {
+            font-family: 'FontAwesome';
+            display: inline-block;
+            content: '\f106';
+            margin-left: 5px;
+        }
+
+        th[data-ordered="desc"]::after, th[data-ordered="desc"]::after {
+            content: '\f107';
+        }
+        
+    }
+
+}

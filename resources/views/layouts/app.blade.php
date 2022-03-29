@@ -14,12 +14,11 @@
 
         <div class="wrapper">
 
-            @if ($mainClass != 'pass_reset' && $mainClass != 'login' && $mainClass != 'register' 
+            @if ($mainClass != 'welcome' && $mainClass != 'pass_reset' && $mainClass != 'login' && $mainClass != 'register' 
                 && $mainClass != 'password-reset' && $mainClass != 'email-password' && $mainClass != 'confirm-password')
                 
                 @auth
                     <main class="{{ $mainClass }}">
-        
                         <div class="main-inner">
                             @yield('content')
                         </div>

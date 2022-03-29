@@ -8,7 +8,7 @@
 
     <div class="register-container">
 
-        <div class="card side-row col-md-6 offset-md-6">
+        <div class="card side-row col-md-5 offset-md-7">
 
             <div class="card-header register text-center">
                 <h3>Registre-se</h3>

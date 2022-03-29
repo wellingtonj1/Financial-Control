@@ -1,4 +1,4 @@
-@extends('layouts.app', ['mainClass' => 'wmodules create-edit'])
+@extends('layouts.app', ['mainClass' => 'payable-create-edit'])
 
 @section('content')
 <div class="container-fluid">
@@ -16,7 +16,7 @@
 
                 <div class="card-body">
 
-                    <form class="modules-form" submit-block method="post" action="{{ url('bills/payable') }}">
+                    <form class="to-pay-form" submit-block method="post" action="{{ url('bills/payable') }}" data-url="{{ url('bills/payable') }}">
                         
                         {{ csrf_field() }}
                         
@@ -32,15 +32,15 @@
 
                                     <div class="row">
 
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-3">
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" id="basic-addon1">Nome</span>
                                                 <input type="text" class="form-control" name="name" value="{{ old('name', $payable->name) }}" required="required" />
                                             </div>
                                         </div>
 
-                                        <div class="form-group col-sm-4">
-                                            <div class="input-group mb-3">
+                                        <div class="form-group col-sm-3">
+                                            <div class="input-group mb-2">
                                                 <label class="input-group-text" for="inputGroupSelect01">Tipo de Dívida</label>
                                                 <select class="form-select" id="type" name="type" value="{{ old('type', $payable->type) }}">
                                                     <option value="1">Fixa</option>
@@ -49,14 +49,64 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-2">
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Valor R$</span>
                                                 <input type="numeric" class="form-control" name="cost" value="{{ old('cost', $payable->cost) }}" required="required" />
                                             </div>
                                         </div>
 
-                                        
+                                        <div class="form-group col-sm-4">
+                                            
+                                            <div class="selects-list input-group">
+                                                <span class="input-group-text">Categoria</span>
+                                                @if (isEdit() && $selectedCategories && count($selectedCategories))
+                                                
+                                                    @foreach ($selectedCategories as $categories)
+                                                        
+                                                        <select 
+                                                        name="category_id[]" 
+                                                        
+                                                        data-url="{{ url('/payable/category') }}" 
+                                                        data-placeholder='Selecione uma categoria: <span class="required">*</span>'
+                                                        data-parent={{ $categories->where('is_selected', true)->first()->id ?? null }}
+                                                        data-lastId={{ $payable->category_id }}
+                                                        >
+                                                        <option value>Selecione</option>	
+                                                        @foreach($categories as $index => $p)
+                                                            <option value="{{ $p->id }}" 
+                                                                {{ $p->is_selected ? 'selected="selected"':'' }}>
+                                                                {{ $p->name }}
+                                                            </option>
+                                                        @endforeach
+                                
+                                                        </select>
+                                                            
+                                                    @endforeach
+                                                
+                                                @else
+                                
+                                                    <select 
+                                                        name="category_id[]" 
+                                                        
+                                                        data-url="{{ url('/payable/category') }}" 
+                                                        data-placeholder='Selecione uma categoria: <span class="required">*</span>'
+                                                    >
+                                                        <option value>Selecione</option>	
+                                                        @foreach($categories->values() as $index => $p)
+                                                            <option value="{{ $p->id }}" 
+                                                            {{ $selectedCategories && $p->id === $selectedCategories[0][$index]->id && $selectedCategories[0][$index]->is_selected ? 'selected="selected"':'' }}>
+                                                                {{ $p->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                            
+                                                @endif
+                                
+                                            </div>
+
+                                        </div>
+
                                     </div>
 
                                     <div class="row">

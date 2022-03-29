@@ -80,4 +80,8 @@ form {
         border-color: $hoverBtnColor;
     }
 
+    .selects-list {
+        flex-direction: column;
+    }
+
 }

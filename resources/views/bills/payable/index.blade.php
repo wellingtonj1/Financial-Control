@@ -1,4 +1,4 @@
-@extends('layouts.app', ['mainClass' => 'wmodules'])
+@extends('layouts.app', ['mainClass' => 'payable'])
 
 @section('content')
     <div class="container-fluid">
@@ -31,12 +31,13 @@
 
                             @if (!empty($bills) && count($bills) > 0)
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-actions table-ordered">
+                                    <table class="table table-striped table-actions table-ordered text-center">
                                         <thead>
                                             <tr>
                                                 <th data-column="id">ID</th>
                                                 <th data-column="name">Nome da conta</th>
                                                 <th data-column="type">Tipo</th>
+                                                <th>Categoria</th>
                                                 <th data-column="due_date">Vencimento</th>
                                                 <th data-column="cost">Valor</th>
                                                 <th data-column="delay_cost">Juros por atraso</th>
@@ -52,7 +53,8 @@
                                                 
                                                 <td>{{ $bill['id'] }}</td>
                                                 <td>{{ $bill['name'] }}</td>
-                                                <td>{{ $bill['type'] }}</td>
+                                                <td>{{ $bill['type'] == 1 ? 'FIXA' : 'Variavel' }}</td>
+                                                <td data-hover="{{ $bill->selectedCategories }}" >{{ $bill->category['name'] ?? '--' }}</td>
                                                 <td>{{ $bill['due_date'] }}</td>
                                                 <td>{{ $bill['cost'] }}</td>
                                                 <td>{{ $bill['delay_cost'] ? $bill['delay_cost'] . '%' : '--' }}</td>

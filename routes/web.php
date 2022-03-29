@@ -41,5 +41,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('bills/receivable',         'BillsReceiveController@index')->name('billstoreceive');
     Route::get('bills/receivable/create',  'BillsReceiveController@create')->name('billstoreceive.create');
 
+    Route::get('payable/category/nodes',    'BillsPayController@getNodes');
+    Route::get('payable/category',          'BillsCategoriesController@get');
+    Route::post('payable/category',         'BillsCategoriesController@insert');
+    Route::put('payable/category',          'BillsCategoriesController@update');
+    Route::delete('payable/category',       'BillsCategoriesController@delete');
+    
+
 
 });

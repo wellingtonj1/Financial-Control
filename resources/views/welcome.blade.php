@@ -1,20 +1,16 @@
-@extends('layouts.app', ['mainClass' => 'report-index'])
+@extends('layouts.app', ['mainClass' => 'welcome'])
 
 @section('content')
 
-    <div class="container">
+<div class="container-fluid">
 
-        <div class="row">
-            <div class="col-md-12">
-                *CLEAN PROJECT*
+    <div class="row justify-content-center">
 
-                <a href="{{ Route('login') }}">Login</a>
-                <a href="{{ Route('register') }}">Registrar-se</a>
-
-            </div>
-            
+        <div class="col-md-12 mg-up-100 mg-dw-50 text-center">
+            HEELO imagine here a welcome page
         </div>
-
     </div>
+</div>
+
 
 @endsection

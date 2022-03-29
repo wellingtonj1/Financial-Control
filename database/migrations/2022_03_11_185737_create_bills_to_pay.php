@@ -25,7 +25,7 @@ return new class extends Migration
             $table->double('paid_cost')->nullable();
             $table->date('paid_date')->nullable();
             $table->double('delay_cost')->nullable();
-
+            $table->unsignedInteger('category_id');
 
             $table->timestamps();
 

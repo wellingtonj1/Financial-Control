@@ -58,3 +58,32 @@ $(".select2-select-js").select2({
         }
     }
 });
+
+/**
+ * Bloquear o elemento (abrir loading)
+ */
+$.fn.wait = function (_class) {
+
+	// var animatedSvg = `<img src='${window.Laravel.url}/assets/img/loading.svg' >`;
+	var animatedSvg = `<object data="${window.Laravel.url}/assets/img/loading.svg" type="image/svg+xml"></object>`;
+
+	_class = _class ? (' ' + _class) : '';
+
+	$(this).find('.loader-container').remove();
+	// $(this).append('<div class="loader-container' + _class + '"><div class="loader"></div></div>');
+	$(this).append(`<div class="loader-container${_class}"><div class="loader">${animatedSvg}<div class='label'>Carregando...</div></div></div>`);
+	$(this).addClass('loader-active');
+}
+
+/**
+ * Desbloquear o elemento (remover loading)
+ */
+$.fn.closeWait = function () {
+
+	var $self = $(this);
+	''
+	$(this).children(".loader-container").fadeOut(300, function () {
+		$self.removeClass('loader-active');
+		$(this).remove();
+	});
+};

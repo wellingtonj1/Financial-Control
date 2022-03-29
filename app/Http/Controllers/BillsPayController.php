@@ -2,22 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\SessionFilter;
 use App\Models\BillsToPay;
+use App\Models\BillsToPayCategories;
+use App\Traits\NestedSelectTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class BillsPayController extends Controller
 {
+
+    use NestedSelectTrait;
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $bills = BillsToPay::with('user')->paginate(50);
+
+        $request = SessionFilter::updateFilters($request);
+
+		list($limit, $column, $sort, $status) = $filters = filterSearch($request, 50);
+
+		$orderedColumns = [ 'id', 'name', 'type', 'due_date', 'cost', 'delay_cost', 'created_at'];
+		$column = checkOrderBy($orderedColumns, $request->column, 'id');
+
+        //Obtem todas as categorias
+        $categories = BillsToPayCategories::orderBy('name', 'asc')->get();
+        
+        $bills = BillsToPay::with('user', 'category')->orderBy($column, $sort)->paginate($limit);
+        
+        foreach ($bills as $bill) {
+            
+            $bill->selectedCategories = '';
+            $cats = array_reverse($this->buildItemPath($categories, $bill->category_id));
+            
+            foreach ($cats as $key => $cat) {
+                $bill->selectedCategories .= $key == 0 ? $categories->find($cat)->name : ' > ' . $categories->find($cat)->name;
+            }
+        }
+
         return view('bills.payable.index', ['bills' => $bills]);
+        
     }
 
     /**
@@ -27,8 +56,47 @@ class BillsPayController extends Controller
      */
     public function create()
     {
-        $toPay = new BillsToPay();
-        return view('bills.payable.create-edit', ['payable' => $toPay]);
+        return $this->form(new BillsToPay());
+    }
+
+    public function form($billToPay)
+    {
+        $selectedCategories = [];
+
+        if($billToPay->id) {
+
+            //Obtem todas as categorias
+            $categories = BillsToPayCategories::orderBy('name', 'asc')->get();
+
+            //Obtêm as categorias selecionadas
+            $selectedCategories = array_reverse($this->buildSelectedLists($categories, $billToPay->category_id));
+
+            //Filtra somente as categorias sem pai
+            $categories = $categories->where('parent_id', null);
+
+        } else {
+            $categories = BillsToPayCategories::FindByParentId()->get();
+        }
+
+        return view("bills.payable.create-edit", [
+            'payable' => $billToPay, 
+            'categories' => $categories,
+            'selectedCategories' => $selectedCategories
+        ]);
+
+    }
+
+    /**
+     * Returns nodes associated with the specified element 
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getNodes(Request $request){
+        
+        //Obtêm as categorias filhas
+        return BillsToPayCategories::FindByParentId($request->parent_id)->get();
+
     }
 
     /**
@@ -71,7 +139,7 @@ class BillsPayController extends Controller
     public function edit($id)
     {
         $toPay = BillsToPay::find($id);
-        return view('bills.payable.create-edit', ['payable' => $toPay]);
+        return $this->form($toPay);
     }
 
     /**
@@ -113,6 +181,13 @@ class BillsPayController extends Controller
             $toPay->paid_cost = $request->paid_cost;
             $toPay->paid_date = $request->paid_date;
             $toPay->delay_cost = $request->delay_cost;
+
+            // get the last not null element of $request->category_id
+            $categoryId = array_filter($request->category_id, function($value) {
+                return $value !== null;
+            });
+
+            $toPay->category_id = end($categoryId);
             $toPay->save();
             
         } catch (\Exception $e) {
@@ -123,15 +198,14 @@ class BillsPayController extends Controller
 
     public function validation(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
-            'type' => ['required', 'integer', 'max:255'],
+            'type' => ['required', 'string', 'max:255'],
             'cost' => ['required', 'numeric'],
             'due_date' => ['required', 'date'],
             'paid_date' => ['nullable', 'date'],
             'paid_cost' => ['nullable', 'numeric'],
-            'delay_cost' => ['nullable', 'integer']
+            'delay_cost' => ['nullable', 'integer'],
         ]);
 
         return $validator;
