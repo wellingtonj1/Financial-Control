@@ -1,24 +1,33 @@
 'use strict';
 
-function closeAlert($elem) {
+function closeAlert($container) {
+
+	console.log($container);
 	
-	var $container = $('.alert-container');
-	
-	var delay = $container.length?$container.closest('.alert-container').attr('data-delay'):null;
+	var delay = $container.length ? $container.closest('.alert-container').attr('data-delay'):null;
 	
 	if (!delay || !$.isNumeric(delay)) {
 		delay = 10000;
 	}
 
-	setTimeout(function() {
-		
-		$elem.removeClass('fadeInDown').addClass('fadeOutUp');
-		
-		setTimeout(function() {
-			$elem.remove();
-		}, 500);
+	if (delay == 0) {
+
+		$container.remove();
+
+	} else {
 	
-	}, delay);
+		setTimeout(function() {
+	
+			if ($container.length > 0) {
+				
+				$container.removeClass('fadeOutUp').addClass('fadeInDown');
+				$container.remove();
+
+			}
+	
+		}, delay);
+	
+	}
 }
 
 var $alert;
@@ -38,7 +47,7 @@ function getAlertContent(type, message) {
 		error: 'alert-danger',
 		warning: 'alert-warning'
 	}
-	console.log(type);
+	
 	var html = 
 	'<div class="alert animated fadeInDown">'+
 		'<span class="icon"><i aria-hidden="true"></i></span>'+
@@ -64,31 +73,54 @@ $.fn.alert = function(type, message) {
 };
 
 (function() {
-	
-	$('.alert').each(function() {
-		closeAlert($(this));
 
-		// on click in button class close 
-		$(this).find('.close').on('click', function() {
-			$('.alert-container').closest('.alert-container').attr('data-delay', 0);
-			closeAlert($(this).closest('.alert'));
-			$('.alert-container').closest('.alert-container').attr('data-delay', 10000);
+	$('.alert').each(function() {
+		
+		$(this).on('DOMSubtreeModified', function() {
+			
+			if ($(this).find('.close').length > 0) {
+				closeAlert($(this).find('.alert.animated'));
+			}
+				
 		});
+	});
+	
+	// on click in button class close 
+	$('.alert').on('click', '.close', function() {
+
+		$(this.closest('.alert')).remove();
+		
+		// var $alertContainer = $(this).closest('.alert-container');
+		// $alertContainer.attr('data-delay', 0);
+		// closeAlert($(this).closest('.alert.animated'));
+		// $alertContainer.attr('data-delay', 5000);
 
 	});
 	
 	var toggle = function(type, message, controlSpam) {
 		
 		var $container = $('.alert-container');
-		var $activeAlerts = $container.find(".alert");
+		var $activeAlerts = $container.find(".alert.animated");
 		
-		if (!controlSpam || (controlSpam == true && $activeAlerts.length == 0)) {
+		if ($activeAlerts.length == 0) {
 			var $elem = getAlertContent(type, message);
 			
-			closeAlert($elem);
 			$container.append($elem);
 			$(window).scrollTop(0);
+			
+
+		} else {
+			
+			// // trigger click on .close
+			// $container.find('.close').trigger('click');
+
+			var $elem = getAlertContent(type, message);
+			
+			$container.append($elem);
+			$(window).scrollTop(0);
+
 		}
+
 	}
 	
 	$alert = {

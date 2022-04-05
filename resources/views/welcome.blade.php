@@ -8,6 +8,7 @@
 
         <div class="col-md-12 mg-up-100 mg-dw-50 text-center">
             HEELO imagine here a welcome page
+            {{-- TODO immplement a Welcome page --}}
         </div>
     </div>
 </div>

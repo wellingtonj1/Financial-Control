@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bills_to_pay_categories', function (Blueprint $table) {
+        Schema::create('bills_to_receive_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name', 150);
             $table->unsignedInteger('parent_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('parent_id')->references('id')->on('bills_to_pay_categories');
+            $table->foreign('parent_id')->references('id')->on('bills_to_receive_categories');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bills_to_pay_categories');
+        Schema::dropIfExists('bills_to_receive_categories');
     }
 };

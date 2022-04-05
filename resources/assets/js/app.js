@@ -1,12 +1,12 @@
 // Toogle side modal
 $('.open-side-nav').on('click', function () {
-    $('.side-panel').css('width', '100%').css('transition', '3s');
+    $('.side-panel').css('width', '100%');
     $('.wrapper').css('margin-left', '250px');
 
 });
 
 $('.btn-side-close').on('click', function () {
-    $('.side-panel').css('width', '0').css('transition', '1s');;
+    $('.side-panel').css('width', '0');
     $('.wrapper').css('margin-left', '0');
 });
 
@@ -71,7 +71,7 @@ $.fn.wait = function (_class) {
 
 	$(this).find('.loader-container').remove();
 	// $(this).append('<div class="loader-container' + _class + '"><div class="loader"></div></div>');
-	$(this).append(`<div class="loader-container${_class}"><div class="loader">${animatedSvg}<div class='label'>Carregando...</div></div></div>`);
+	$(this).append(`<div class="loader-container${_class}"><div class="loader">${animatedSvg}</div></div>`);
 	$(this).addClass('loader-active');
 }
 

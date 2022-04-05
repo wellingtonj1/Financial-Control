@@ -26,14 +26,13 @@ $(function () {
     $('.payable-create-edit').each(function () {
 
         var isSubmiting = false;
-        console.log('target');
+        
         //Create edit
         var $target = $(this);
         var $mainAlertContainer = $target.find('.alert-container');
-        $mainAlertContainer.addClass('stand-by-alert-container');
-        $mainAlertContainer.removeClass('alert-container');
 
-        // TODO alert to nested select
+        // $mainAlertContainer.addClass('stand-by-alert-container');
+        // $mainAlertContainer.removeClass('alert-container');
 
         /**
          * Realiza o load da lib de select's customizados
@@ -238,5 +237,3 @@ $(function () {
     });
 
 });
-
-// TODO submit to insert bill to pay with category_id ajax

@@ -5,7 +5,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-12 mg-up-50 mg-dw-50">
-            <div class="allert pd-up-25">
+            <div class="alert">
                 @include('partials._alert', ['oneError' => true ])
             </div>
             <div class="card custom">

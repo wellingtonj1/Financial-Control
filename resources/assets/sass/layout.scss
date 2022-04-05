@@ -19,8 +19,16 @@ html{
                     font-size: 20px;
                 }
             }
+
+            main {
+                min-height: 100vh;
+
+                .main-inner {
+                    min-height: 100vh;
+                }
+            }
             
-            transition: margin-left .5s;
+            transition: margin-left .3s;
         }
         
         footer {

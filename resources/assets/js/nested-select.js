@@ -264,6 +264,7 @@ jQuery.fn.extend({
                         if (result == true) {
 
                             categoryDelete(id).then((result) => {
+                                
                                 $alert.success(result);
 
                                 $select.find('option').each((index, opt) => {
@@ -283,6 +284,8 @@ jQuery.fn.extend({
                                 $li.detach();
 
                             }).catch((err) => {
+                                console.log('AQUII');
+                                console.log($alert);
                                 $alert.error(err);
                             });
 

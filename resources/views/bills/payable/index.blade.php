@@ -7,7 +7,7 @@
 
             <div class="col-md-12 mg-up-50 mg-dw-50">
 
-                <div class="allert pd-up-25">
+                <div class="alert pd-up-25">
                     @include('partials._alert', ['oneError' => true])
                 </div>
 

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+// TODO implement a real front end welcome page
 
 Route::get          ('login',       'Auth\LoginController@showLoginForm')->name('login');
 Route::post         ('login',       'Auth\LoginController@login'        );
@@ -46,7 +47,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('payable/category',         'BillsCategoriesController@insert');
     Route::put('payable/category',          'BillsCategoriesController@update');
     Route::delete('payable/category',       'BillsCategoriesController@delete');
-    
 
+    Route::get('receivable/category/nodes',    'BillsReceiveController@getNodes');
+    Route::get('receivable/category',          'BillsToReceiveCategoriesController@get');
+    Route::post('receivable/category',         'BillsToReceiveCategoriesController@insert');
+    Route::put('receivable/category',          'BillsToReceiveCategoriesController@update');
+    Route::delete('receivable/category',       'BillsToReceiveCategoriesController@delete');
+    // TODO continue the receivable category implementation on server and front side
+
+    // TODO implement a config account route
+
+    
 
 });

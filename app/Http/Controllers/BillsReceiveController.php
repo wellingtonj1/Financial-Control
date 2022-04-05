@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BillsToReceive;
+use App\Models\BillsToReceiveCategories;
 use Illuminate\Http\Request;
 
 class BillsReceiveController extends Controller
@@ -82,5 +83,18 @@ class BillsReceiveController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Returns nodes associated with the specified element 
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getNodes(Request $request){
+        
+        //Obtêm as categorias filhas
+        return BillsToReceiveCategories::FindByParentId($request->parent_id)->get();
+
     }
 }

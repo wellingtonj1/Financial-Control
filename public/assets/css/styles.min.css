@@ -304,6 +304,45 @@ main.login .main-inner .login-container .card.side-row .card-header, main.login 
   padding-top: 100px;
 }
 
+/* Loader */
+.loader-container {
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  min-height: inherit !important;
+  position: absolute !important;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.loader-container .loader {
+  top: 50%;
+  left: 50%;
+}
+
+.loader-container .loader .label {
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: 500;
+  height: 20px;
+  text-indent: 8px;
+}
+
+.loader-container.light .loader {
+  border-color: #fff;
+}
+
+.loader-container.dark .loader {
+  border-color: #088;
+}
+
+.loader-active {
+  position: relative;
+}
+
 .alert-container {
   text-align: center;
 }
@@ -582,6 +621,7 @@ nav.nav-custom .options .dropdown ul a:active {
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
+  transition: width .3s;
 }
 
 .side-panel .content {
@@ -814,7 +854,7 @@ html body {
 
 html body .wrapper {
   min-height: 100vh;
-  transition: margin-left .5s;
+  transition: margin-left .3s;
 }
 
 html body .wrapper button.close {
@@ -825,6 +865,14 @@ html body .wrapper button.close {
 html body .wrapper button.close span {
   color: #000;
   font-size: 20px;
+}
+
+html body .wrapper main {
+  min-height: 100vh;
+}
+
+html body .wrapper main .main-inner {
+  min-height: 100vh;
 }
 
 html body footer .disclaimer {
